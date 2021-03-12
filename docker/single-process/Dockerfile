@@ -25,6 +25,7 @@ RUN umask 002 && \
 EXPOSE 3000
 
 COPY ["docker/scripts/setup_env", "docker/single-process/scripts/init", "/scripts/"]
+RUN setcap CAP_NET_BIND_SERVICE=+eip /usr/bin/ruby
 CMD ["/scripts/init"]
 
 USER 1001

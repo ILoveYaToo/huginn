@@ -36,6 +36,7 @@ COPY ["docker/multi-process/scripts/bootstrap.sh", \
       "docker/multi-process/scripts/foreman.sh", \
       "docker/multi-process/scripts/init", \
       "docker/scripts/setup_env", "/scripts/"]
+RUN setcap CAP_NET_BIND_SERVICE=+eip /usr/bin/ruby
 CMD ["/scripts/init"]
 
 USER 1001
